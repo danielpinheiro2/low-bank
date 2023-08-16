@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LowBank_Windows
 {
-    internal class Cliente
+    public class Cliente
     {
         public string Nome;
         public string CPF;

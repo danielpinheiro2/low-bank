@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            customButton1 = new CustomButton();
-            customButton2 = new CustomButton();
+            avatarImage = new PictureBox();
+            LoginButton = new CustomButton();
+            CadastroButtom = new CustomButton();
+            cpfTextBox = new TextBox();
+            senhaTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)avatarImage).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -47,42 +49,61 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // pictureBox2
+            // avatarImage
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(204, 232);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(55, 50);
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
+            avatarImage.Image = (Image)resources.GetObject("avatarImage.Image");
+            avatarImage.Location = new Point(204, 232);
+            avatarImage.Name = "avatarImage";
+            avatarImage.Size = new Size(55, 50);
+            avatarImage.TabIndex = 3;
+            avatarImage.TabStop = false;
             // 
-            // customButton1
+            // LoginButton
             // 
-            customButton1.BackColor = Color.Gold;
-            customButton1.FlatAppearance.BorderSize = 0;
-            customButton1.FlatStyle = FlatStyle.Flat;
-            customButton1.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            customButton1.Location = new Point(83, 323);
-            customButton1.Name = "customButton1";
-            customButton1.Size = new Size(120, 40);
-            customButton1.TabIndex = 4;
-            customButton1.Text = "Login";
-            customButton1.UseVisualStyleBackColor = false;
-            customButton1.Click += customButton1_Click;
+            LoginButton.BackColor = Color.Gold;
+            LoginButton.FlatAppearance.BorderSize = 0;
+            LoginButton.FlatStyle = FlatStyle.Flat;
+            LoginButton.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LoginButton.Location = new Point(83, 323);
+            LoginButton.Name = "LoginButton";
+            LoginButton.Size = new Size(120, 40);
+            LoginButton.TabIndex = 4;
+            LoginButton.Text = "Login";
+            LoginButton.UseVisualStyleBackColor = false;
+            LoginButton.Click += customButton1_Click;
             // 
-            // customButton2
+            // CadastroButtom
             // 
-            customButton2.BackColor = Color.Gold;
-            customButton2.FlatAppearance.BorderSize = 0;
-            customButton2.FlatStyle = FlatStyle.Flat;
-            customButton2.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            customButton2.Location = new Point(254, 323);
-            customButton2.Name = "customButton2";
-            customButton2.Size = new Size(120, 40);
-            customButton2.TabIndex = 5;
-            customButton2.Text = "Cadastrar";
-            customButton2.UseVisualStyleBackColor = false;
-            customButton2.Click += customButton2_Click;
+            CadastroButtom.BackColor = Color.Gold;
+            CadastroButtom.FlatAppearance.BorderSize = 0;
+            CadastroButtom.FlatStyle = FlatStyle.Flat;
+            CadastroButtom.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            CadastroButtom.Location = new Point(254, 323);
+            CadastroButtom.Name = "CadastroButtom";
+            CadastroButtom.Size = new Size(120, 40);
+            CadastroButtom.TabIndex = 5;
+            CadastroButtom.Text = "Cadastrar";
+            CadastroButtom.UseVisualStyleBackColor = false;
+            CadastroButtom.Click += customButton2_Click;
+            // 
+            // cpfTextBox
+            // 
+            cpfTextBox.Location = new Point(181, 229);
+            cpfTextBox.Name = "cpfTextBox";
+            cpfTextBox.PlaceholderText = "CPF";
+            cpfTextBox.Size = new Size(122, 23);
+            cpfTextBox.TabIndex = 6;
+            cpfTextBox.Visible = false;
+            // 
+            // senhaTextBox
+            // 
+            senhaTextBox.Location = new Point(181, 265);
+            senhaTextBox.Name = "senhaTextBox";
+            senhaTextBox.PlaceholderText = "Senha";
+            senhaTextBox.Size = new Size(122, 23);
+            senhaTextBox.TabIndex = 7;
+            senhaTextBox.UseSystemPasswordChar = true;
+            senhaTextBox.Visible = false;
             // 
             // LoginPage
             // 
@@ -90,21 +111,26 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(469, 398);
-            Controls.Add(customButton2);
-            Controls.Add(customButton1);
-            Controls.Add(pictureBox2);
+            Controls.Add(senhaTextBox);
+            Controls.Add(cpfTextBox);
+            Controls.Add(CadastroButtom);
+            Controls.Add(LoginButton);
+            Controls.Add(avatarImage);
             Controls.Add(pictureBox1);
             Name = "LoginPage";
             Text = "LoginPage";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)avatarImage).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private CustomButton customButton1;
-        private CustomButton customButton2;
+        private PictureBox avatarImage;
+        private CustomButton LoginButton;
+        private CustomButton CadastroButtom;
+        private TextBox cpfTextBox;
+        private TextBox senhaTextBox;
     }
 }
