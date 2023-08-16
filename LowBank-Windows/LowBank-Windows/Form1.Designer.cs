@@ -33,7 +33,7 @@
             label4 = new Label();
             pictureBox2 = new PictureBox();
             CartaoCredito = new CustomPanel();
-            label3 = new Label();
+            saldoTexto = new Label();
             label2 = new Label();
             button2 = new CustomButton();
             button1 = new CustomButton();
@@ -86,7 +86,7 @@
             // 
             CartaoCredito.ArredondaCantosInferiores = true;
             CartaoCredito.BackColor = Color.FromArgb(59, 70, 241);
-            CartaoCredito.Controls.Add(label3);
+            CartaoCredito.Controls.Add(saldoTexto);
             CartaoCredito.Controls.Add(label2);
             CartaoCredito.ForeColor = Color.FromArgb(59, 70, 241);
             CartaoCredito.Location = new Point(364, 56);
@@ -94,18 +94,18 @@
             CartaoCredito.Size = new Size(300, 180);
             CartaoCredito.TabIndex = 1;
             // 
-            // label3
+            // saldoTexto
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Cascadia Mono SemiBold", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(51, 67);
-            label3.Name = "label3";
-            label3.Size = new Size(207, 35);
-            label3.TabIndex = 4;
-            label3.Text = "R$ 10.000,00";
-            label3.Click += label3_Click;
+            saldoTexto.AutoSize = true;
+            saldoTexto.BackColor = Color.Transparent;
+            saldoTexto.Font = new Font("Cascadia Mono SemiBold", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            saldoTexto.ForeColor = Color.White;
+            saldoTexto.Location = new Point(51, 67);
+            saldoTexto.Name = "saldoTexto";
+            saldoTexto.Size = new Size(207, 35);
+            saldoTexto.TabIndex = 4;
+            saldoTexto.Text = "R$ 10.000,00";
+            saldoTexto.Click += label3_Click;
             // 
             // label2
             // 
@@ -132,6 +132,7 @@
             button2.TabIndex = 2;
             button2.Text = "Transferir";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -145,6 +146,7 @@
             button1.TabIndex = 1;
             button1.Text = "Depositar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textoBemVindo
             // 
@@ -177,6 +179,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             MouseDown += Form1_MouseDown;
             MouseMove += Form1_MouseMove;
             MouseUp += Form1_MouseUp;
@@ -196,7 +199,7 @@
         private CustomPanel PainelFundo;
         private CustomPanel CartaoCredito;
         private Label label2;
-        private Label label3;
+        private Label saldoTexto;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label4;
