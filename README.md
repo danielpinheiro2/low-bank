@@ -1,2 +1,2 @@
 # low-bank
-Códigos para estudos de C#
+Este é um projeto de um aplicativo de banco visando aprender o básico da linguagem c#.
