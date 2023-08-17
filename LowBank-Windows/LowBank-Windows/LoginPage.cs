@@ -18,17 +18,13 @@ namespace LowBank_Windows
         {
             InitializeComponent();
         }
-
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
-
-
         private void customButton1_Click(object sender, EventArgs e)
         {
-            if(cpfTextBox.Visible!= true)
+            if (cpfTextBox.Visible != true)
             {
                 this.avatarImage.Visible = false;
                 this.CadastroButtom.Visible = false;
@@ -36,43 +32,41 @@ namespace LowBank_Windows
                 cpfTextBox.Visible = true;
                 senhaTextBox.Visible = true;
             }
-
             else
             {
-
                 // recuperar cpf
                 string cpfDaTela = cpfTextBox.Text;
 
                 //acessa arquivo
                 string[] conteudoArquivo = File.ReadAllLines(dbPath);
 
-                foreach(var linha in conteudoArquivo)
+                var clienteResultado = conteudoArquivo
+                    .Skip(1)
+                    .Select(linha => Cliente.Parse(linha))
+                    .FirstOrDefault(c => c.CPF == cpfDaTela);
+                if (clienteResultado == null)
                 {
-                    string[] informacoesLinha = linha.Split(',');
-                    string cpfLinha = informacoesLinha[0];
-                    // 41:02
+                    MessageBox.Show("Usuário não cadastrado");
                 }
-
-                //quebrar informações por virgula
-                string[] informacoes = conteudoArquivo[1].Split(',');
-
-                string cpf = informacoes[0];
-                string conta = informacoes[1];
-                string nome = informacoes[2];
-                string saldo = informacoes[3];
-                decimal saldoDecimal = decimal.Parse(saldo);
-
-                Cliente usuarioLogado = new Cliente(nome, cpf, conta, saldoDecimal);
-
-                // ir para o home page
-
-                Form1 homepage = new Form1(usuarioLogado);
-                homepage.Show();
-                this.Hide();
+                else
+                {
+                    if (clienteResultado.Senha == senhaTextBox.Text)
+                    {
+                        var homePage = new Form1(clienteResultado);
+                        homePage.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("senha inválida");
+                    }
+                    // ir para o home page
+                    Form1 homepage = new Form1(clienteResultado);
+                    homepage.Show();
+                    this.Hide();
+                }
             }
-
         }
-
         private void customButton2_Click(object sender, EventArgs e)
         {
 
@@ -84,6 +78,11 @@ namespace LowBank_Windows
         }
 
         private void LoginPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void senhaTextBox_TextChanged_1(object sender, EventArgs e)
         {
 
         }

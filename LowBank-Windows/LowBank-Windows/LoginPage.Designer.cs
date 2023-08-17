@@ -104,6 +104,7 @@
             senhaTextBox.TabIndex = 7;
             senhaTextBox.UseSystemPasswordChar = true;
             senhaTextBox.Visible = false;
+            senhaTextBox.TextChanged += senhaTextBox_TextChanged_1;
             // 
             // LoginPage
             // 
